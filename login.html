@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/stylelogin.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="box-form">
+	<div class="left">
+		<div class="overlay">
+		<h1>Hello World.</h1>
+		<p>create a account to enhance your buisness</p>
+		<span>
+			<p>login with social media</p>
+			<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+		</span>
+		</div>
+	</div>
+	
+	
+		<div class="right">
+		<h5>Login</h5>
+		<p>Don't have an account? <a href="#">Create Your Account</a> it takes less than a minute</p>
+		<div class="inputs">
+			<input type="text" id="username" placeholder="user name">
+			<br>
+			<input type="password" id="pass" placeholder="password">
+		</div>
+			
+			<br><br>
+			
+		<div class="remember-me--forget-password">
+				<!-- Angular -->
+	
+			<p>forget password?</p>
+		</div>
+			
+			<br>
+			<button type="submit" onclick="validate()">Login</button>
+	</div>
+	
+</div>
+  
+<div class="container1">
+	<div class="row1">
+		
+		<!-- Form -->
+    <div class="nb-form">
+    <p class="title">Contact us</p>
+    
+   <p>Here You can contact us anytime.</p>
+
+   <form id="form" onsubmit="reset(); return false;">
+    <input type="" class="email_text" id="name" placeholder="Name" name="Name">
+    <input type="" class="email_text" id="email" placeholder="Email" name="Email">
+    <input type="" class="email_text" id="phone" placeholder="Phone Number" name="Phone Number">
+    <textarea class="massage_text" placeholder="Message" rows="5" id="comment" name="Message"></textarea>
+    <button type="submit" class="btn1" onclick="SendEmail()" >Send</button>
+  </form>
+  </div>
+	</div>
+</div>
+<!-- partial -->
+<script>
+	function validate(){
+		var username= document.getElementById("username").value
+		var pass= document.getElementById("pass").value
+		if (username=="susalabs" && pass=="123456789"){
+			alert("login successfully");
+			window.location.replace("compose.html");
+			return false;
+		}
+		else{
+			alert("login failed");
+		}
+	}
+</script>
+<!--smtp javascript-->
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+<script >
+function SendEmail(){
+  Email.send({
+Host : "smtp.elasticemail.com",
+Username : "akash.gupta@susalabs.com",
+Password : "EB0606260AEA083746A6E2BE5A67CEF699CF",
+To : 'akashgupta9968381034@gmail.com',
+From : "akash.gupta@susalabs.com",
+Subject : "Application enquiry Form",
+Body : "Name: " + document.getElementById("name").value
+
++ "<br> Email: " + document.getElementById("email").value
+
++ "<br> Pnone no:" + document.getElementById("phone").value
+
++ "<br> Message:" + document.getElementById("comment").value
+}).then(
+message => alert("Email send succesfully")
+);
+
+}
+
+</script>
+  
+</body>
+</html>

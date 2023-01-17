@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Your CSS -->
+        <link href="css/composecss1.css" rel="stylesheet">
+        <link href="css/composecss.css" rel="stylesheet">
+
+
+        <title>compose</title>
+    </head>
+    <body class="bg-dark">
+
+      <!-- nav nav-pills py-3-->
+      <ul class="nav nav-pills py-2 bg-dark justify-content-center" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="dorkingMain" data-toggle="tab" href="#jsLinks" role="tab" aria-controls="Js Links" aria-selected="true">Compose Email</a>
+        </li>
+       
+      </ul>
+      <div class="tab-content" id="myTabContent">
+
+        <!-- main page-->
+        <div class="tab-pane fade show active" id="jsLinks" role="tabpanel" aria-labelledby="jsLinks-tab">
+          <div class="px-6 py-3">
+            <!-- Subject -->
+            <form id="form" onsubmit="reset(); return false;">
+            <h4 class="text-secondary p-1">To</h4>
+            <input type="text" id="to" class="form-control mb-3"  placeholder="Email adddress">
+            <h4 class="text-secondary p-1">Subject</h4>
+            <input type="text" class="form-control mb-3" id="subject" placeholder="Hey, There is your invoice">
+            
+
+            <!-- Content/Message Body -->
+            <h4 class="text-secondary p-1">Content or Message Body</h4>
+            <textarea class="form-control contentarea  mb-5"  id="message" placeholder="Message Body"></textarea>            
+            <button type="submit" class="btn btn-sm btn-primary w-full" id="btnShooter" style="font-size: 16px;" onclick="SendEmail()">Shoot Mail</button>
+        </form>
+            <div class="text-warning text-center" id="contentError"></div>
+          </div>
+          
+        </div>
+        <!-- // main page-->
+
+
+       
+
+        
+       
+       
+
+      </div>
+      
+
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="js/dist/jquery-3.3.1.slim.min.js"></script>
+        <script src="js/dist/popper.min.js"></script>
+        <script src="js/dist/bootstrap.min.js"></script>
+        <script src="js/dist/clipboard.min.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/script.js"></script>
+         <!--smtp javascript-->
+  <script src="https://smtpjs.com/v3/smtp.js">
+</script>
+<script >
+function SendEmail(){
+  Email.send({
+Host : "smtp.elasticemail.com",
+Username : "akash.gupta@susalabs.com",
+Password : "EB0606260AEA083746A6E2BE5A67CEF699CF",
+To :document.getElementById("to").value,
+From : "akash.gupta@susalabs.com",
+Subject : document.getElementById("subject").value,
+Body : document.getElementById("message").value
+}).then(
+message => alert("Email send succesfully")
+);
+
+}
+
+</script>
+    </body>
+</html>
